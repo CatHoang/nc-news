@@ -1,12 +1,17 @@
 import React from "react";
 import Hamburger from "./Hamburger";
+import { useContext } from "react";
+import { UserContext } from "../contexts/User";
 
 const Header = () => {
+  const { loggedInUser } = useContext(UserContext);
   return (
-    <div className="header-container">
+    <div className="Header">
       <div />
-      <div className="Header">Cat's New News</div>
-      <Hamburger />
+      <div>Cat's New News</div>
+      <span>{loggedInUser.username}</span>
+      <img src={loggedInUser.avatar_url} alt={loggedInUser.username} />
+      {/* <Hamburger /> */}
     </div>
   );
 };
