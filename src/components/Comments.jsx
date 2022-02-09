@@ -14,14 +14,23 @@ const Comments = () => {
       setComments(commentsFromApi);
     });
   }, [article_id]);
-  console.log(comments);
+
   return (
     <div>
-      <CommentAdder comments={comments} setComments={setComments} />
+      <CommentAdder
+        article_id={article_id}
+        comments={comments}
+        setComments={setComments}
+      />
       <CommentDelete />
       <ul>
         {comments.map((comment) => {
-          return <li>{comment.body}</li>;
+          return (
+            <li key={comment.comment_id}>
+              {comment.body}
+              <p>Author: {comment.author}</p>
+            </li>
+          );
         })}
       </ul>
     </div>

@@ -11,11 +11,19 @@ import Comments from "./components/Comments";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
-    username: "butter_bridge",
+    username: "jessjelly",
+    name: "Jess Jelly",
+    avatar_url:
+      "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141",
   });
+
+  const isLoggedIn = loggedInUser !== null;
+
   return (
     <BrowserRouter>
-      <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
+      <UserContext.Provider
+        value={{ loggedInUser, setLoggedInUser, isLoggedIn }}
+      >
         <div className="App">
           <Header />
           <Nav />

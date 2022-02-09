@@ -18,7 +18,7 @@ const SingleArticle = () => {
       <p>{article.body}</p>
       <p>{article.author}</p>
       <p>{article.votes}</p>
-      <p>{article.created_at}</p>
+      <p>Created on {article.created_at}</p>
       <Comments />
     </div>
   );

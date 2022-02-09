@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getArticles } from "../utils/apis";
 import { Link, useParams } from "react-router-dom";
+import Votes from "./Votes";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -23,6 +24,11 @@ const Articles = () => {
               </Link>
               <p>Author: {article.author}</p>
               <p>Topic: {article.topic}</p>
+              <Votes />
+              <p>{article.comment_count} comments</p>
+              <button> upvote</button>
+              <p>{article.votes}</p>
+              <button>downVote</button>
             </li>
           );
         })}

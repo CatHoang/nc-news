@@ -1,26 +1,35 @@
 import React, { useState } from "react";
 import { postComment } from "../utils/apis";
+import { useContext } from "react";
+import { UserContext } from "../contexts/User";
 
 const CommentAdder = (props) => {
-  const { comments, setComments } = props;
-  const [addComments, setAddComments] = useState({});
+  const { loggedInUser } = useContext(UserContext);
+  const { article_id, comments, setComments } = props;
+  const [newCommentInput, setNewCommentInput] = useState("");
 
   function handleSubmit(event) {
-    setComments((comments) => [comments, addComments]);
-    setAddComments(addComments);
+    event.preventDefault();
+    const newComment = { author: loggedInUser.username, body: newCommentInput };
+    setComments(() => [newComment, ...comments]);
+    postComment(article_id, loggedInUser.username, newCommentInput).then(() => {
+      setNewCommentInput("");
+    });
   }
+  function handleChange(event) {
+    setNewCommentInput(event.target.value);
+  }
+
   return (
     <form onSubmit={handleSubmit}>
-      <label>Have your say:</label>
-      <input placeholder="comment here" required></input>
-      <button
-        type="submit"
-        onClick={(e) => {
-          return postComment(e.target.value);
-        }}
-      >
-        Add!
-      </button>
+      <label key={newCommentInput}>Have your say:</label>
+      <input
+        value={newCommentInput}
+        placeholder="comment here"
+        onChange={handleChange}
+        required
+      ></input>
+      <button type="submit">Post Comment!</button>
     </form>
   );
 };

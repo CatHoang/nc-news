@@ -9,8 +9,14 @@ const Header = () => {
     <div className="Header">
       <div />
       <div>Cat's New News</div>
-      <span>{loggedInUser.username}</span>
-      <img src={loggedInUser.avatar_url} alt={loggedInUser.username} />
+      <span className="logged__username">
+        Logged in: {loggedInUser.username}
+      </span>
+      <img
+        className="avatar__url"
+        src={loggedInUser.avatar_url}
+        alt={loggedInUser.username}
+      />
       {/* <Hamburger /> */}
     </div>
   );
