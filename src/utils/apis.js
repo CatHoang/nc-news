@@ -38,10 +38,16 @@ export const postComment = (article_id, username, body) => {
     });
 };
 
-export const patchArticle = (article_id) => {
+export const patchArticle = (article_id, inc_votes) => {
   return ncNewsApi
-    .patch(`/articles/${article_id}`, { inc_votes: 1 })
+    .patch(`/articles/${article_id}`, inc_votes)
     .then(({ data }) => {
       return data.articles;
     });
+};
+
+export const deleteComment = (comment_id) => {
+  return ncNewsApi.delete(`/comments/${comment_id}`).catch((err) => {
+    console.log(err);
+  });
 };

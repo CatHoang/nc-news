@@ -22,13 +22,18 @@ const Comments = () => {
         comments={comments}
         setComments={setComments}
       />
-      <CommentDelete />
+
       <ul>
         {comments.map((comment) => {
           return (
             <li key={comment.comment_id}>
               {comment.body}
               <p>Author: {comment.author}</p>
+              <CommentDelete
+                comments={comments}
+                setComments={setComments}
+                comment={comment}
+              />
             </li>
           );
         })}

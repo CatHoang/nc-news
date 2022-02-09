@@ -22,7 +22,7 @@ const CommentAdder = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label key={newCommentInput}>Have your say:</label>
+      <label>Have your say:</label>
       <input
         value={newCommentInput}
         placeholder="comment here"

@@ -17,18 +17,19 @@ const Articles = () => {
       <h2>All Articles</h2>
       <ul>
         {articles.map((article) => {
+          console.log(article);
+          const { article_id, title, author, topic, comment_count, votes } =
+            article;
+          console.log(article_id);
           return (
-            <li key={article.article_id}>
-              <Link to={`/articles/${article.article_id}`}>
-                <h3>{article.title}</h3>{" "}
+            <li key={article_id}>
+              <Link to={`/articles/${article_id}`}>
+                <h3>{title}</h3>{" "}
               </Link>
-              <p>Author: {article.author}</p>
-              <p>Topic: {article.topic}</p>
-              <Votes />
-              <p>{article.comment_count} comments</p>
-              <button> upvote</button>
-              <p>{article.votes}</p>
-              <button>downVote</button>
+              <p>Author: {author}</p>
+              <p>Topic: {topic}</p>
+              <p>{comment_count} comments</p>
+              <Votes votes={votes} article_id={article_id} />
             </li>
           );
         })}
