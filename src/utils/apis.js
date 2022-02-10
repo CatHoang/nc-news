@@ -10,9 +10,9 @@ export const getTopics = () => {
   });
 };
 
-export const getArticles = (topic, order, sort_by) => {
+export const getArticles = (topic, sort_by, order) => {
   return ncNewsApi
-    .get("/articles", { params: { topic, order, sort_by } })
+    .get("/articles", { params: { topic, sort_by, order } })
     .then(({ data }) => {
       return data.articles;
     });
@@ -34,11 +34,12 @@ export const postComment = (article_id, username, body) => {
   return ncNewsApi
     .post(`/articles/${article_id}/comments`, { username, body })
     .then(({ data }) => {
-      return data.comments;
+      return data.comment;
     });
 };
 
 export const patchArticle = (article_id, inc_votes) => {
+  console.log(inc_votes);
   return ncNewsApi
     .patch(`/articles/${article_id}`, inc_votes)
     .then(({ data }) => {

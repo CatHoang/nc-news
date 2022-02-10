@@ -11,10 +11,13 @@ const CommentAdder = (props) => {
   function handleSubmit(event) {
     event.preventDefault();
     const newComment = { author: loggedInUser.username, body: newCommentInput };
-    setComments(() => [newComment, ...comments]);
-    postComment(article_id, loggedInUser.username, newCommentInput).then(() => {
-      setNewCommentInput("");
-    });
+
+    postComment(article_id, loggedInUser.username, newCommentInput).then(
+      (postedComment) => {
+        setNewCommentInput("");
+        setComments(() => [postedComment, ...comments]);
+      }
+    );
   }
   function handleChange(event) {
     setNewCommentInput(event.target.value);

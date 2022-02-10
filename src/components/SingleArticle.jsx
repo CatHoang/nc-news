@@ -19,7 +19,7 @@ const SingleArticle = () => {
       <p>{article.body}</p>
       <p>{article.author}</p>
       <p>{article.votes}</p>
-      <p>Created on {moment(article.created_at).format("DD/MM/YYYY")}</p>
+      <p>Created on {moment(article.created_at).format("DD-MM-YYYY")}</p>
       <Comments />
     </div>
   );
