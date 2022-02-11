@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { patchArticle } from "../utils/apis";
 
 const Votes = ({ votes, article_id }) => {
@@ -8,17 +8,15 @@ const Votes = ({ votes, article_id }) => {
     setVoteChange((currentVoteChange) => {
       return currentVoteChange + voteType;
     });
-    patchArticle(article_id, { inc_votes: voteType })
-      .then((response) => {})
-      .catch((err) => {
-        console.log(err);
-      });
+    patchArticle(article_id, { inc_votes: voteType }).catch((err) => {
+      setVoteChange((currentVoteChange) => currentVoteChange - 1);
+    });
   };
   return (
     <div>
-      <button onClick={() => giveVote(1)}>upVote</button>
+      <button onClick={() => giveVote(1)}>👍</button>{" "}
       <p>{voteChange + votes}</p>
-      <button onClick={() => giveVote(-1)}>downVote</button>
+      <button onClick={() => giveVote(-1)}>👎</button>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import Hamburger from "./components/Hamburger";
 import { UserContext } from "./contexts/User";
 import { useState } from "react";
 import Comments from "./components/Comments";
+import Error from "./components/Error";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
@@ -29,12 +30,14 @@ function App() {
           <Nav />
           <Routes>
             <Route path="/" element={<Articles />} />
+            <Route path="/articles" element={<Articles />} />
             <Route path="/topics/:topic" element={<Articles />} />
             <Route path="/articles/:article_id" element={<SingleArticle />} />
             <Route
               path="/articles/:article_id/comments"
               element={<Comments />}
             />
+            <Route path="/*" element={<Error />} />
           </Routes>
         </div>
       </UserContext.Provider>

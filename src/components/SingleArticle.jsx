@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getSingleArticle } from "../utils/apis";
 import Comments from "./Comments";
 import moment from "moment";
+import Votes from "./Votes";
 
 const SingleArticle = () => {
   const [article, setArticle] = useState({});
@@ -14,12 +15,12 @@ const SingleArticle = () => {
     });
   }, [article_id]);
   return (
-    <div>
+    <div className="Single__article">
       <h2>{article.title}</h2>
       <p>{article.body}</p>
-      <p>{article.author}</p>
-      <p>{article.votes}</p>
+      <p>Author: {article.author}</p>
       <p>Created on {moment(article.created_at).format("DD-MM-YYYY")}</p>
+      <Votes votes={article.votes} article_id={article.article_id} />
       <Comments />
     </div>
   );

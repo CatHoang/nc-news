@@ -26,9 +26,9 @@ const Comments = () => {
       <ul>
         {comments.map((comment) => {
           return (
-            <li key={comment.comment_id}>
+            <li className="Comments" key={comment.comment_id}>
               {comment.body}
-              <p>Author: {comment.author}</p>
+              <p>User: {comment.author}</p>
               <CommentDelete
                 comments={comments}
                 setComments={setComments}

@@ -39,7 +39,6 @@ export const postComment = (article_id, username, body) => {
 };
 
 export const patchArticle = (article_id, inc_votes) => {
-  console.log(inc_votes);
   return ncNewsApi
     .patch(`/articles/${article_id}`, inc_votes)
     .then(({ data }) => {

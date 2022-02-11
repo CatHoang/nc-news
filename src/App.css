@@ -1,10 +1,22 @@
 .App {
+  font: Zen Kaku Gothic Antique;
+
+  background-color: rgb(245, 244, 243);
   text-align: center;
+}
+a {
+  color: darkslategray;
+  text-decoration: none; /* no underline */
 }
 
 .Header {
-  border: 1px solid green;
+  margin-top: -1.5em;
+  background-color: lightblue;
   height: 10vh;
+}
+
+.loggedIn__user {
+  border: solid red;
 }
 
 /* .header-container {
@@ -12,9 +24,11 @@
   justify-content: space-between;
 } */
 .Nav {
-  border: 1px solid red;
+  border: 3x solid rgb(236, 70, 70);
+  border-radius: 5px;
   display: flex;
   justify-content: space-between;
+  text-transform: capitalize;
 }
 
 .avatar__url {
@@ -34,7 +48,32 @@
 } */
 
 .Articles {
-  border: 1px solid blue;
+  padding: 10px 20px 10px 0px;
+  text-transform: capitalize;
+}
+
+.Article {
+  margin: 20px;
+  padding: 5px 10px 20px 10px;
+  border: 3px solid rgb(238, 200, 32);
+  border-radius: 5px;
+  list-style-type: none;
+}
+.Single__article {
+  margin: 2em;
+  padding: 5px 10px 20px 10px;
+  border: 3px solid rgb(238, 200, 32);
+  border-radius: 5px;
+}
+
+.Comments {
+  padding: 0.5em;
+  border: 1px solid lightblue;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  list-style-type: none;
+  background-color: white;
+  border-radius: 10px;
 }
 
 .nav-content {

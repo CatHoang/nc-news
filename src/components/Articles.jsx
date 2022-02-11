@@ -6,32 +6,26 @@ import moment from "moment";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
-  const { topic, sort_by, order } = useParams();
-  const [sortByState, setSortByState] = useState("comment_count");
-  const [orderState, setOrderState] = useState("asc");
+  const { topic } = useParams();
+  const [sortByState, setSortByState] = useState("created_at");
 
   useEffect(() => {
-    getArticles(topic, sort_by, order).then((articlesFromApi) => {
+    getArticles(topic, sortByState).then((articlesFromApi) => {
       setArticles(articlesFromApi);
     });
-  }, [topic, sort_by, order]);
+  }, [topic, sortByState]);
+
+  const dropDownInput = (e) => {
+    setSortByState(e.target.value);
+  };
   return (
     <main className="Articles">
-      <h2>All Articles</h2>
+      <h2>All {topic} Articles</h2>
       <label>sort by </label>
-      <select>
-        <option value="created_at" onClick={() => setSortByState("created_at")}>
-          Created at
-        </option>
-        <option
-          value="comment_count"
-          onClick={() => setSortByState("comment_count")}
-        >
-          Comment Count
-        </option>
-        <option value="votes" onClick={() => setSortByState("votes")}>
-          Votes
-        </option>
+      <select value={sortByState} onChange={dropDownInput}>
+        <option value="created_at">Created at</option>
+        <option value="comment_count">Comment Count</option>
+        <option value="votes">Votes</option>
       </select>
 
       <ul>
@@ -40,9 +34,9 @@ const Articles = () => {
             article;
 
           return (
-            <li key={article_id}>
+            <li className="Article" key={article_id}>
               <Link to={`/articles/${article_id}`}>
-                <h3>{title}</h3>{" "}
+                <h2>{title}</h2>
               </Link>
               <p>Author: {author}</p>
               <p>

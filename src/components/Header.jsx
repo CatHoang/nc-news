@@ -8,15 +8,18 @@ const Header = () => {
   return (
     <div className="Header">
       <div />
-      <div>Cat's New News</div>
-      <span className="logged__username">
-        Logged in: {loggedInUser.username}
-      </span>
-      <img
-        className="avatar__url"
-        src={loggedInUser.avatar_url}
-        alt={loggedInUser.username}
-      />
+      <h2>
+        Cat's New News
+        <span className="loggedIn__user">
+          Logged in: {loggedInUser.username}
+        </span>
+        <img
+          className="avatar__url"
+          src={loggedInUser.avatar_url}
+          alt={loggedInUser.username}
+        />
+      </h2>
+
       {/* <Hamburger /> */}
     </div>
   );
