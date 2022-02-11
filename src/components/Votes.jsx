@@ -14,8 +14,8 @@ const Votes = ({ votes, article_id }) => {
   };
   return (
     <div>
-      <button onClick={() => giveVote(1)}>👍</button>{" "}
-      <p>{voteChange + votes}</p>
+      <button onClick={() => giveVote(1)}>👍</button>
+      <p>{String(voteChange + votes)}</p>
       <button onClick={() => giveVote(-1)}>👎</button>
     </div>
   );
