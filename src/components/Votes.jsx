@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { patchArticle } from "../utils/apis";
+import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 
 const Votes = ({ votes, article_id }) => {
   const [voteChange, setVoteChange] = useState(0);
@@ -13,10 +14,14 @@ const Votes = ({ votes, article_id }) => {
     });
   };
   return (
-    <div>
-      <button onClick={() => giveVote(1)}>👍</button>
+    <div className="votes-container">
+      <button onClick={() => giveVote(1)}>
+        <AiOutlineArrowUp />
+      </button>
       <p>{String(voteChange + votes)}</p>
-      <button onClick={() => giveVote(-1)}>👎</button>
+      <button onClick={() => giveVote(-1)}>
+        <AiOutlineArrowDown />
+      </button>
     </div>
   );
 };

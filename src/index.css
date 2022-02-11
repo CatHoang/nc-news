@@ -1,8 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Comforter", cursive;
   font-family: "Roboto", sans-serif;
   font-family: "Zen Kaku Gothic Antique", sans-serif;
+  background-color: rgb(245, 244, 243);
 }
 
 code {

@@ -1,0 +1,121 @@
+header {
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  height: 5em;
+  z-index: 100000;
+}
+
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5em;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  margin-right: 2em;
+  position: relative;
+}
+
+nav > a {
+  border: 2px solid rgb(238, 200, 32);
+  color: rgb(238, 200, 32);
+  padding: 2px 8px;
+  border-radius: 10px;
+  transform: 1s;
+  font-weight: 500;
+}
+
+nav > a:hover {
+  background-color: rgb(238, 200, 32);
+  color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  .header-right > nav {
+    display: none;
+  }
+  .nav-mobile {
+    justify-content: center;
+    display: flex;
+    background-color: white;
+    padding: 10px;
+  }
+  .header-left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transform: translateX(15px);
+  }
+  .Navbar {
+    margin-right: 0 !important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .nav-mobile {
+    display: none;
+  }
+}
+
+.header-left {
+  margin-left: 2em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.header-left > a {
+  font-size: 36px;
+}
+
+/* ----------- NAV STYLES ------------*/
+
+.Navbar {
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
+  width: 15em;
+  margin-right: 2em;
+}
+
+/* ----------- LOGIN DROPDOWN ------------*/
+
+.show-user-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 10px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar__url {
+  height: 20px;
+  width: 20px;
+}
+
+.show-user-dropdown {
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+  border-radius: 5px;
+  right: 0;
+  padding: 8px 20px;
+  top: 40px;
+
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.loggedIn__user {
+  color: rgb(238, 200, 32);
+}

@@ -3,6 +3,7 @@ import { getArticles } from "../utils/apis";
 import { Link, useParams } from "react-router-dom";
 import Votes from "./Votes";
 import moment from "moment";
+import "../styles/Articles.css";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -20,7 +21,7 @@ const Articles = () => {
   };
   return (
     <main className="Articles">
-      <h2>All {topic} Articles</h2>
+      <h2 className="articles-heading">All {topic} Articles</h2>
       <label>sort by </label>
       <select value={sortByState} onChange={dropDownInput}>
         <option value="created_at">Created at</option>
@@ -28,7 +29,7 @@ const Articles = () => {
         <option value="votes">Votes</option>
       </select>
 
-      <ul>
+      <ul className="articles-container">
         {articles.map((article) => {
           const { article_id, title, author, topic, comment_count, votes } =
             article;
@@ -36,7 +37,7 @@ const Articles = () => {
           return (
             <li className="Article" key={article_id}>
               <Link to={`/articles/${article_id}`}>
-                <h2>{title}</h2>
+                <h1 className="article-title">{title}</h1>
               </Link>
               <p>Author: {author}</p>
               <p>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getTopics } from "../utils/apis";
 import { Link } from "react-router-dom";
+import "../styles/Header.css";
 
 const Nav = () => {
   const [topics, SetTopics] = useState([]);
@@ -11,8 +12,7 @@ const Nav = () => {
     });
   }, []);
   return (
-    <nav className="Nav">
-      <Link to={"/"}>Home</Link>
+    <nav className="Navbar">
       {topics.map((topic) => {
         return (
           <Link key={topic.slug} to={`/topics/${topic.slug}`}>
