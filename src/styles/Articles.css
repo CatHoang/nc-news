@@ -5,8 +5,8 @@
 }
 
 select {
-  width: 150px;
-  padding: 5px 35px 5px 5px;
+  width: 180px;
+  padding: 5px 5px 5px 5px;
   font-size: 16px;
   border: 3px solid rgb(238, 200, 32);
   border-radius: 5px;
@@ -34,12 +34,6 @@ select {
   background-color: white;
   width: 350px;
 }
-.Single__article {
-  /* margin: 2em; */
-  padding: 5px 10px 20px 10px;
-  border: 3px solid rgb(238, 200, 32);
-  border-radius: 5px;
-}
 
 .articles-container {
   display: flex;
@@ -51,6 +45,12 @@ select {
   font-weight: 300;
   color: rgb(238, 200, 32);
   margin-bottom: 20px;
+}
+
+.author {
+  font-weight: 500;
+  font-size: large;
+  padding-bottom: 0.5em;
 }
 /* ------------ VOTES -------------- */
 
@@ -65,4 +65,8 @@ select {
   background-color: transparent;
   cursor: pointer;
   margin: 0 10px;
+}
+
+.votes {
+  color: rgb(238, 200, 32);
 }

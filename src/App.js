@@ -7,6 +7,7 @@ import { UserContext } from "./contexts/User";
 import { useState } from "react";
 import Comments from "./components/Comments";
 import Error from "./components/Error";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({

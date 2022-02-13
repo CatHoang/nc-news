@@ -10,7 +10,6 @@ const CommentAdder = (props) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const newComment = { author: loggedInUser.username, body: newCommentInput };
 
     postComment(article_id, loggedInUser.username, newCommentInput).then(
       (postedComment) => {
@@ -24,15 +23,17 @@ const CommentAdder = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Have your say:</label>
-      <input
+    <form className="comment__form" onSubmit={handleSubmit}>
+      <textarea
+        className="comment-input"
         value={newCommentInput}
-        placeholder="comment here"
+        placeholder="Have your say here....."
         onChange={handleChange}
         required
-      ></input>
-      <button type="submit">Post Comment!</button>
+      ></textarea>
+      <button type="submit" className="comment-button">
+        Post Comment!
+      </button>
     </form>
   );
 };

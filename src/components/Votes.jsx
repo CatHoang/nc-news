@@ -18,7 +18,7 @@ const Votes = ({ votes, article_id }) => {
       <button onClick={() => giveVote(1)}>
         <AiOutlineArrowUp />
       </button>
-      <p>{String(voteChange + votes)}</p>
+      <p className="votes">{String(voteChange + votes)}</p>
       <button onClick={() => giveVote(-1)}>
         <AiOutlineArrowDown />
       </button>

@@ -17,7 +17,9 @@ const CommentDelete = ({ comments, setComments, comment }) => {
   return (
     <div>
       {loggedInUser.username === comment.author && (
-        <button onClick={handleDelete}>Delete</button>
+        <button className="comment-button" onClick={handleDelete}>
+          Delete
+        </button>
       )}
     </div>
   );

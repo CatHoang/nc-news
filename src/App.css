@@ -55,3 +55,15 @@ a {
   top: 20;
   left: 0;
 } */
+
+.loading-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(71, 71, 71, 0.473);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

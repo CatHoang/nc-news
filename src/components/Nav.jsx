@@ -7,9 +7,13 @@ const Nav = () => {
   const [topics, SetTopics] = useState([]);
 
   useEffect(() => {
-    getTopics().then((topicsFromApi) => {
-      SetTopics(topicsFromApi);
-    });
+    getTopics()
+      .then((topicsFromApi) => {
+        SetTopics(topicsFromApi);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
   }, []);
   return (
     <nav className="Navbar">

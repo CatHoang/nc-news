@@ -11,24 +11,29 @@ const Comments = () => {
 
   useEffect(() => {
     getComments(article_id).then((commentsFromApi) => {
-      setComments(commentsFromApi);
+      const sortedComments = commentsFromApi.sort((a, b) => {
+        return +new Date(b.created_at) - +new Date(a.created_at);
+      });
+      console.log(">>", sortedComments);
+
+      setComments(sortedComments);
     });
   }, [article_id]);
 
   return (
-    <div>
+    <article>
       <CommentAdder
         article_id={article_id}
         comments={comments}
         setComments={setComments}
       />
 
-      <ul>
+      <ul className="comments-container">
         {comments.map((comment) => {
           return (
-            <li className="Comments" key={comment.comment_id}>
+            <li className="comments" key={comment.comment_id}>
               {comment.body}
-              <p>User: {comment.author}</p>
+              <p className="comment-user ">User: {comment.author}</p>
               <CommentDelete
                 comments={comments}
                 setComments={setComments}
@@ -38,7 +43,7 @@ const Comments = () => {
           );
         })}
       </ul>
-    </div>
+    </article>
   );
 };
 
