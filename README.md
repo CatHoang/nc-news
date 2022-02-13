@@ -2,7 +2,7 @@
 
 Cat's New News is an individual front end project which consolidates my understanding of making a C.R.U.D application from a front end perspective.
 
-Please find the link to the hosted version of this project here: "link "
+Please find the link to the hosted version of this project here: "https://cats-new-news.netlify.app/"
 
 It pulls together all the front-end skills, technologies and best practices I have learnt.
 
@@ -18,7 +18,9 @@ Cat's New News has articles which are divided into topics. Each article has user
 
 ## Getting started.
 
-To run this project locally, please clone the repository and then install all the packages.
+To run this project locally, please clone the repository: https://github.com/CatHoang/nc-news.git
+
+- cd into nc-news
 
 ## Available Scripts
 
